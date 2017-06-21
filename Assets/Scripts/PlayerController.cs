@@ -27,4 +27,9 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
+
+    public void test()
+    {
+        rb.AddForce(0, 10, 0, ForceMode.Impulse);
+    }
 }
