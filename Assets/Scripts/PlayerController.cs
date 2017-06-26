@@ -15,21 +15,21 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && gameObject.transform.position.y < 4.5f)
         {
-            rb.AddForce(0,5,0, ForceMode.Impulse);
+            rb.AddForce(0,6,0, ForceMode.Impulse);
         }
 
         rb.AddForce(movement * speed);
     }
 
-    public void test()
-    {
-        rb.AddForce(0, 10, 0, ForceMode.Impulse);
-    }
-}
+	public void push()
+	{
+		rb.AddForce(0, 10, 0, ForceMode.Impulse);
+	}
+ }
