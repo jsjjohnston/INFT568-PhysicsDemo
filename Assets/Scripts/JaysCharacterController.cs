@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /*
  * Author: Jay Johnston
- * Discription: CharacterController
+ * Discription: Character Controller
  * https://roystanross.wordpress.com/category/unity-character-controller-series/
  */
 public class JaysCharacterController : MonoBehaviour {
@@ -33,8 +31,6 @@ public class JaysCharacterController : MonoBehaviour {
                 contactPoint = ClosestPointOn((SphereCollider)col, transform.position);
             }
             
-            //DebugDraw.DrawMarker(contactPoint, 2.0f, Color.red, 0.0f, false);
-
             Vector3 v = transform.position - contactPoint;
             transform.position += Vector3.ClampMagnitude(v, Mathf.Clamp(radius - v.magnitude, 0, radius));
 

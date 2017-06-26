@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/*
+ * Author: Jay Johnston
+ * Description: On collision Makes the PLayer Push up
+ */
 public class PushBox : MonoBehaviour {
 
 	// Use this for initialization
@@ -14,8 +16,8 @@ public class PushBox : MonoBehaviour {
 		
 	}
 
-
-	void OnTriggerEnter(Collider other)
+	// On collision Push up player
+	private void OnTriggerEnter(Collider other)
 	{
 		other.gameObject.GetComponent<PlayerController>().push();
 	}

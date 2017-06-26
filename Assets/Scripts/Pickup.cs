@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Author: Jay Johnston
+ * Discription: Handels Animation and keeps track if score
+ */
 public class Pickup : MonoBehaviour
 {
 	public static int score = 0; // Current Value of Score
@@ -18,7 +22,7 @@ public class Pickup : MonoBehaviour
 		transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime); // Animate the Pickup
 	}
 
-	// On Trigger
+	// On Trigger Update score and Destroy Pickup
 	void OnTriggerEnter(Collider other)
 	{
 		scoreText.GetComponent<Text>().text = "Score: " + ++score; // Update Score

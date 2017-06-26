@@ -1,27 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/*
+ * Author: Jay Johnston
+ * Description: Used to setup the Level. Quick and Dirty Implmentation
+ */
 public class LevelManager : MonoBehaviour {
 
+	// Ground Genaration
     public GameObject groundPrefab;
     public int groundLength;
 
-    public GameObject startWallPrefab;
+	// Start Wall Genaration
+	public GameObject startWallPrefab;
     public Transform startWallPos;
     public int startWallHeight;
     public int startWallWidth;
 
-    public GameObject endWallPrefab;
+	// End Wall Genaration
+	public GameObject endWallPrefab;
     public Transform endWallPos;
     public int endWallHeight;
     public int endWallWidth;
 
+	// Behind Wall Genaration
 	public GameObject backWallPrefab;
 	public Transform backWallPos;
 	public int backWallHeight;
 	public int backWallWidth;
 
+	// Platforms Genaration
 	public GameObject platformPrefab;
 	public Transform platformPos;
 	public int platformHeight;
@@ -32,6 +39,7 @@ public class LevelManager : MonoBehaviour {
        
 	}
 
+	// Genarate The Game Level
 	[ContextMenu("Generate Level")]
 	private void Generte()
 	{
@@ -76,6 +84,7 @@ public class LevelManager : MonoBehaviour {
 		{
 			for (int y = 0; y < backWallHeight; y++)
 			{
+				// 1 in 5 chance to skip adding wall
 				if ((int)Random.Range(0, 5) != 3)
 				{
 					ga = (GameObject)Instantiate(backWallPrefab);
@@ -93,7 +102,7 @@ public class LevelManager : MonoBehaviour {
 	private void platform()
 	{
 		GameObject ga; // GameObject Handle
-		// Generte Platform
+		// Generte Platforms
 		for (int x = 0; x < platformWidth; x++)
 		{
 			for (int y = 0; y < platformHeight; y++)

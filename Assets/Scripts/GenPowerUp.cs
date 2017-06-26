@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/*
+ * Author: Jay Johnston
+ * Description: Genarate power up on trigger
+ */
 public class GenPowerUp : MonoBehaviour {
 
-	public GameObject pickup;
-	public Transform location;
+	public GameObject pickup; // Prefab of pickup
+	public Transform location; // Location to setup the Pickup
+	private GameObject gPickup; // Handle to Genarated Pickup
 
-	GameObject ga;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,12 +20,14 @@ public class GenPowerUp : MonoBehaviour {
 		
 	}
 
+	// When Triggered
 	private void OnTriggerEnter(Collider other)
 	{
-		if (ga == null)
+		// If Genarated Pickup doesnt exist
+		if (gPickup == null)
 		{
-			ga = Instantiate(pickup);
-			ga.transform.position = location.position;
+			gPickup = Instantiate(pickup); // Create it
+			gPickup.transform.position = location.position; // Set it's position
 		}
 	}
 }
