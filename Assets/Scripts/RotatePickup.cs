@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RotatePickup : MonoBehaviour
 {
+	public static int score = 0;
+	private GameObject scoreText;
 
 	// Use this for initialization
 	void Start()
 	{
-
+		scoreText = GameObject.FindWithTag("ScoreText");
 	}
 
 	// Update is called once per frame
@@ -19,7 +22,7 @@ public class RotatePickup : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		Destroy(gameObject);
-		//other.gameObject.GetComponent<PlayerController>().test();
+		scoreText.GetComponent<Text>().text = "Score: " + ++score;
+		Destroy(gameObject); 
 	}
 }
